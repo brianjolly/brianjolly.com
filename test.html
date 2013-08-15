@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+	<head>
+		<style>
+			body {
+				font-size: 30px;
+				font-family: Arial
+			}
+			hello, world {
+				position: relative;
+			}
+		</style>
+
+		<script src=js/libs/jquery-1.7.1.min.js></script>
+
+		<script>
+			function go() {
+				$("world").delay(100).animate({ top: 0 }, 1100);
+				$("world").delay(100).animate({ left: 0 }, 1100);
+
+
+				$("hello").delay(200).animate({ left: 200 }, 1100);
+				$("hello").delay(250).animate({ top: 200 }, 1100);
+
+				$("world").delay(350).animate({ left: 200 }, 1100);
+				$("hello").delay(350).animate({ top: 200 }, 1100);
+
+				$("world").delay(400).animate({ top: 200 }, 1100, go);
+
+				$("hello").animate({ top: 0 }, 1100);
+				$("hello").animate({ left: 0 }, 1100);
+			}
+
+			$(function() {
+				$('body').append('<hello>Hello</hello>')
+				$('hello').hide();
+				$('hello').delay(100).fadeIn(500);
+
+				$('body').append('<world>World</world>')
+				$('world').hide();
+				$('world').delay(300).fadeIn(500, go);
+			});
+		</script>
+	</head>
+
+	<body></body>
+</html>
